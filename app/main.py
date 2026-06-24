@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from app.db.database import engine, Base, get_db
 from app.api import users
 from app.api import auth
+from app.models import ticket
 
 Base.metadata.create_all(bind=engine)
 
