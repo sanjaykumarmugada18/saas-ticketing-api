@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from app.db.database import engine, Base, get_db
 from app.api import users
 from app.api import auth
+from app.api import tickets
 from app.models import ticket
 
 Base.metadata.create_all(bind=engine)
@@ -11,6 +12,7 @@ app=FastAPI(title="Saas Support API")
 
 app.include_router(users.router)
 app.include_router(auth.router)
+app.include_router(tickets.router)
 
 @app.get("/health")
 async def health_check():
