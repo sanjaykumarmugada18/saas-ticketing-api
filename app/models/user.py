@@ -11,4 +11,4 @@ class User(Base):
     hashed_password = Column(String, nullable=False)
     role = Column(String, default="customer")
 
-    tickets = relationship("Tickets", back_populates="owner")
+    tickets = relationship("Ticket", back_populates="owner")
