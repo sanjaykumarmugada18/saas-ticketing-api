@@ -33,3 +33,11 @@ def get_current_user(
         raise credentials_exception
 
     return user
+
+def get_current_active_agent(current_user: User = Depends(get_current_user)):
+    if current_user.role not in ["agent", "admin"]:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="The user doesn't have enough privileges"
+        )
+    return current_user

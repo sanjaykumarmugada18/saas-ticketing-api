@@ -36,12 +36,18 @@ def read_tickets(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
-    tickets = (
-        db.query(Ticket)
-        .filter(Ticket.owner_id == current_user.id)
-        .offset(skip)
-        .limit(limit)
-        .all()
-    )
-
+    # RBAC Query Branching
+    if current_user.role in ["agent", "admin"]:
+        # The Wall Drops: Agents see everything
+        tickets = db.query(Ticket).offset(skip).limit(limit).all()
+    else:
+        # The Tenant Isolation Wall: Customers see only their own
+        tickets = (
+            db.query(Ticket)
+            .filter(Ticket.owner_id == current_user.id)
+            .offset(skip)
+            .limit(limit)
+            .all()
+        )
+    
     return tickets
