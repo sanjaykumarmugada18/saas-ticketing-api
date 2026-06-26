@@ -15,6 +15,10 @@ class TicketCreate(TicketBase):
 class TicketResponse(TicketBase):
     id: int
     status: TicketStatus
+
+    category: str
+    priority: str
+
     created_at: datetime
     owner_id: int
 

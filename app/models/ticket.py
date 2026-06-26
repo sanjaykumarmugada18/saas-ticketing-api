@@ -17,6 +17,10 @@ class Ticket(Base):
     title = Column(String, index=True, nullable=False)
     description = Column(Text, nullable=False)
     status = Column(Enum(TicketStatus), default=TicketStatus.PENDING, nullable=False)
+    
+    category = Column(String, default="Uncategorized", index=True)
+    priority = Column(String, default="Low", index=True)
+
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     owner_id = Column(Integer, ForeignKey("users.id"), nullable=False)
