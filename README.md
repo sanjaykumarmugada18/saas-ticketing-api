@@ -35,45 +35,40 @@ The project demonstrates modern backend engineering practices including secure J
 
 ## ✨ Features
 
-### 🔐 Authentication & Security
+### Authentication & Authorization
 
-* ✅ User Registration
-* ✅ JWT Authentication
-* ✅ Password Hashing with bcrypt
-* ✅ Role-Based Authorization (Customer, Agent, Admin)
-* ✅ Protected API Endpoints
+- Email-based user registration
+- JWT authentication
+- Secure password hashing with bcrypt
+- Role-based access control (Customer, Agent, Admin)
+- Protected API endpoints using FastAPI dependency injection
 
----
+### Ticket Management
 
-### 🎫 Ticket Management
+- Create support tickets
+- View customer-specific tickets
+- Agent and administrator access to all tickets
+- Update ticket status
+- Automatic timestamp generation
+- Multi-tenant data isolation
 
-* ✅ Create Support Tickets
-* ✅ View Personal Tickets
-* ✅ Agent/Admin Ticket Access
-* ✅ Ticket Status Updates
-* ✅ Automatic Timestamping
+### AI Ticket Processing
 
----
+- Automatic ticket categorization
+- Automatic priority prediction
+- Asynchronous AI processing using FastAPI Background Tasks
+- Groq Llama 3.1 integration
+- Structured JSON responses from the LLM
+- Prompt injection mitigation through system prompts
+- Graceful fallback handling when AI services are unavailable
 
-### 🤖 AI-Powered Ticket Intelligence
+### Production Ready
 
-* ✅ Automatic Ticket Categorization
-* ✅ Automatic Priority Prediction
-* ✅ Asynchronous AI Processing using FastAPI Background Tasks
-* ✅ Groq Llama 3.1 Integration
-* ✅ JSON-Enforced AI Responses
-* ✅ Prompt Injection Protection
-* ✅ Graceful Fallback Handling if AI Service Fails
-
----
-
-### ☁️ Production Features
-
-* ✅ PostgreSQL Database
-* ✅ SQLAlchemy ORM
-* ✅ Docker Development Environment
-* ✅ CORS Configuration
-* ✅ Health Check Endpoint
-* ✅ Cloud Deployment on Render
-* ✅ Environment Variable Configuration
-
+- PostgreSQL database
+- SQLAlchemy ORM
+- Docker-based local development
+- Environment variable configuration
+- CORS middleware
+- Health check endpoint
+- Cloud deployment on Render
+- Production-ready project structure
