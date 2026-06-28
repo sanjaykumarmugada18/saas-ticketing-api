@@ -72,3 +72,44 @@ The project demonstrates modern backend engineering practices including secure J
 - Health check endpoint
 - Cloud deployment on Render
 - Production-ready project structure
+
+---
+
+# 🏗️ System Architecture
+
+The application follows a layered backend architecture that separates responsibilities into independent modules, making the project scalable, maintainable, and easy to extend.
+
+```
+                    Client
+                       │
+                       ▼
+              FastAPI REST API
+                       │
+        ┌──────────────┴──────────────┐
+        ▼                             ▼
+ Authentication                 Ticket Routes
+        │                             │
+        └──────────────┬──────────────┘
+                       ▼
+                Business Logic
+                       │
+        ┌──────────────┴──────────────┐
+        ▼                             ▼
+        AI Service              Database Layer
+     (Groq Llama 3.1)          (SQLAlchemy ORM)
+        │                             │
+        └──────────────┬──────────────┘
+                       ▼
+                  PostgreSQL
+```
+
+### Request Flow
+
+1. A user authenticates using JWT.
+2. The client sends an authenticated API request.
+3. FastAPI validates the request and permissions.
+4. SQLAlchemy performs the required database operations.
+5. For ticket creation, a FastAPI Background Task asynchronously invokes the AI service.
+6. Groq Llama 3.1 analyzes the ticket and returns a structured JSON response.
+7. The background worker updates the ticket category and priority.
+8. The API responds without waiting for the AI, ensuring low response latency.
