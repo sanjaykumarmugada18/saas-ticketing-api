@@ -1,4 +1,4 @@
-# 🚀 AI-Powered SaaS Support API
+# 🚀 AI-Powered SaaS Ticketing API
 
 ![Python](https://img.shields.io/badge/Python-3.14-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
@@ -9,10 +9,11 @@
 ![Docker](https://img.shields.io/badge/Docker-Container-2496ED)
 ![Render](https://img.shields.io/badge/Render-Deployed-success)
 
+> Production-ready AI-powered SaaS backend built with FastAPI, PostgreSQL, JWT Authentication, Background Tasks, and Groq LLM integration.
+
 ## 📖 Overview
 
-AI-Powered SaaS Support API is a production-ready backend application built with **FastAPI** that enables secure user authentication, role-based ticket management, and intelligent AI-assisted ticket triaging.
-
+AI-Powered SaaS Support API is a production-ready backend application built with **FastAPI** that enables secure user authentication, role-based ticket management, and intelligent AI-powered ticket triage.
 When a user creates a support ticket, the API instantly stores it in PostgreSQL and returns a response without delay. In the background, an AI service powered by **Groq's Llama 3.1** analyzes the ticket, automatically predicts its category and priority, and updates the database asynchronously using FastAPI Background Tasks.
 
 The project demonstrates modern backend engineering practices including secure JWT authentication, SQLAlchemy ORM, asynchronous programming, Docker-based development, cloud deployment on Render, and AI integration through external APIs.
@@ -32,6 +33,12 @@ The project demonstrates modern backend engineering practices including secure J
 **GitHub Repository**
 
 `https://github.com/sanjaykumarmugada18/saas-ticketing-api.git`
+
+## 📸 API Preview
+
+The application exposes an interactive Swagger UI for exploring and testing all available REST API endpoints.
+
+![Swagger UI](docs/swagger-preview.png)
 
 ## ✨ Features
 
@@ -163,3 +170,198 @@ saas-ticketing-api/
 | `schemas/` | Pydantic models for request and response validation |
 | `services/` | Business services including AI ticket analysis |
 | `main.py` | FastAPI application entry point |
+
+---
+
+# 🛠️ Technology Stack
+
+| Category              | Technologies             |
+| --------------------- | ------------------------ |
+| Language              | Python 3.14              |
+| Backend Framework     | FastAPI                  |
+| Database              | PostgreSQL               |
+| ORM                   | SQLAlchemy               |
+| Data Validation       | Pydantic                 |
+| Authentication        | JWT (JSON Web Tokens)    |
+| Password Security     | bcrypt + Passlib         |
+| AI Integration        | Groq API (Llama 3.1)     |
+| Async HTTP Client     | httpx                    |
+| Background Processing | FastAPI Background Tasks |
+| Containerization      | Docker & Docker Compose  |
+| Deployment            | Render                   |
+
+---
+
+# ⚙️ Getting Started
+
+## Prerequisites
+
+* Python 3.12 or later
+* Docker Desktop
+* PostgreSQL (via Docker)
+* Groq API Key
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/sanjaykumarmugada18/saas-ticketing-api.git
+
+cd saas-ticketing-api
+```
+
+## Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+Activate the environment.
+
+Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+## Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Start PostgreSQL
+
+```bash
+docker compose up -d
+```
+
+## Run the API
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Open
+
+```
+http://127.0.0.1:8000/docs
+```
+
+to access the interactive Swagger UI.
+
+---
+
+# 🔐 Environment Variables
+
+Create a .env file using the following template:
+
+```env
+DATABASE_URL=postgresql://username:password@localhost/database_name
+
+SECRET_KEY=your_secret_key
+
+GROQ_API_KEY=your_groq_api_key
+```
+
+---
+
+# 📡 API Endpoints
+
+| Method | Endpoint               | Description                             |
+| ------ | ---------------------- | --------------------------------------- |
+| POST   | `/users/register`      | Register a new user                     |
+| POST   | `/auth/login`          | Authenticate user and generate JWT      |
+| POST   | `/tickets`             | Create a support ticket                 |
+| GET    | `/tickets`             | Retrieve tickets                        |
+| PATCH  | `/tickets/{ticket_id}` | Update ticket status (Agent/Admin only) |
+
+---
+
+# 🧪 AI Processing Workflow
+
+```
+User submits a support ticket
+            │
+            ▼
+Ticket stored in PostgreSQL
+            │
+            ▼
+201 Created returned immediately
+            │
+            ▼
+FastAPI Background Task starts
+            │
+            ▼
+Groq Llama 3.1 analyzes the ticket
+            │
+            ▼
+Returns structured JSON
+            │
+            ▼
+Database updated with
+
+• Category
+• Priority
+```
+
+---
+
+## 🚀 Deployment
+
+The application is deployed on **Render** using:
+
+- Render Web Service
+- Managed PostgreSQL Database
+- Environment Variables
+- Automatic GitHub Deployments
+- Health Check Endpoint
+- CORS Middleware
+
+### Live API
+
+https://saas-ticketing-api.onrender.com
+
+### Swagger UI
+
+https://saas-ticketing-api.onrender.com/docs
+
+---
+
+# 🔮 Future Improvements
+
+Planned enhancements include:
+
+* Email notifications
+* File attachment support
+* Admin dashboard
+* Ticket search and filtering
+* Redis + Celery task queue
+* WebSocket-based live ticket updates
+* Comprehensive automated testing
+* CI/CD with GitHub Actions
+* Monitoring and logging
+* Rate limiting
+
+---
+
+# 👨‍💻 Author
+
+**Sanjay**
+
+Computer Science Engineering Student
+
+GitHub
+
+https://github.com/sanjaykumarmugada18
+
+---
+
+# ⭐ Acknowledgements
+
+This project was built to explore modern backend engineering practices including secure authentication, asynchronous programming, AI integration, cloud deployment, and scalable API design using FastAPI.
