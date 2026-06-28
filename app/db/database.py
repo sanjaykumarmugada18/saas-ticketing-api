@@ -11,8 +11,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     raise ValueError("DATABASE_URL is not set")
 
-# Render and some other hosts may provide postgres://
-# Normalize it for SQLAlchemy compatibility.
+# Render may provide postgres://, but SQLAlchemy expects postgresql://
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
@@ -28,3 +27,11 @@ SessionLocal = sessionmaker(
 )
 
 Base = declarative_base()
+
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
