@@ -23,12 +23,12 @@ The project demonstrates modern backend engineering practices including secure J
 
 **Live API**
 
-`https://YOUR-RENDER-URL.onrender.com`
+`https://saas-ticketing-api.onrender.com`
 
 **Interactive API Documentation**
 
-`https://YOUR-RENDER-URL.onrender.com/docs`
+`https://saas-ticketing-api.onrender.com/docs`
 
 **GitHub Repository**
 
-`https://github.com/YOUR_USERNAME/saas-ticketing-api`
+`https://github.com/sanjaykumarmugada18/saas-ticketing-api.git`
