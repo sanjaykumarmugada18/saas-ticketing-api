@@ -32,3 +32,48 @@ The project demonstrates modern backend engineering practices including secure J
 **GitHub Repository**
 
 `https://github.com/sanjaykumarmugada18/saas-ticketing-api.git`
+
+## ✨ Features
+
+### 🔐 Authentication & Security
+
+* ✅ User Registration
+* ✅ JWT Authentication
+* ✅ Password Hashing with bcrypt
+* ✅ Role-Based Authorization (Customer, Agent, Admin)
+* ✅ Protected API Endpoints
+
+---
+
+### 🎫 Ticket Management
+
+* ✅ Create Support Tickets
+* ✅ View Personal Tickets
+* ✅ Agent/Admin Ticket Access
+* ✅ Ticket Status Updates
+* ✅ Automatic Timestamping
+
+---
+
+### 🤖 AI-Powered Ticket Intelligence
+
+* ✅ Automatic Ticket Categorization
+* ✅ Automatic Priority Prediction
+* ✅ Asynchronous AI Processing using FastAPI Background Tasks
+* ✅ Groq Llama 3.1 Integration
+* ✅ JSON-Enforced AI Responses
+* ✅ Prompt Injection Protection
+* ✅ Graceful Fallback Handling if AI Service Fails
+
+---
+
+### ☁️ Production Features
+
+* ✅ PostgreSQL Database
+* ✅ SQLAlchemy ORM
+* ✅ Docker Development Environment
+* ✅ CORS Configuration
+* ✅ Health Check Endpoint
+* ✅ Cloud Deployment on Render
+* ✅ Environment Variable Configuration
+
