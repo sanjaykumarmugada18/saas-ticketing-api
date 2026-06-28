@@ -113,3 +113,53 @@ The application follows a layered backend architecture that separates responsibi
 6. Groq Llama 3.1 analyzes the ticket and returns a structured JSON response.
 7. The background worker updates the ticket category and priority.
 8. The API responds without waiting for the AI, ensuring low response latency.
+
+---
+
+# 📁 Project Structure
+
+```text
+saas-ticketing-api/
+│
+├── app/
+│   ├── api/
+│   │   ├── auth.py
+│   │   ├── tickets.py
+│   │   └── users.py
+│   │
+│   ├── core/
+│   │   └── security.py
+│   │
+│   ├── db/
+│   │   └── database.py
+│   │
+│   ├── models/
+│   │   ├── ticket.py
+│   │   └── user.py
+│   │
+│   ├── schemas/
+│   │   ├── ticket.py
+│   │   └── user.py
+│   │
+│   ├── services/
+│   │   └── ai_service.py
+│   │
+│   └── main.py
+│
+├── docker-compose.yml
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+### Directory Overview
+
+| Directory | Purpose |
+|------------|---------|
+| `api/` | FastAPI route definitions and HTTP endpoints |
+| `core/` | Authentication, security, and reusable core utilities |
+| `db/` | Database configuration and SQLAlchemy session management |
+| `models/` | SQLAlchemy ORM models representing database tables |
+| `schemas/` | Pydantic models for request and response validation |
+| `services/` | Business services including AI ticket analysis |
+| `main.py` | FastAPI application entry point |
